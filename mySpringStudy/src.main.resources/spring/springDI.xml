@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <context:annotation-config/> -->
+	<context:component-scan base-package="com.wang.spring"/>
+	<aop:aspectj-autoproxy/>
+
+	<!-- <aop:config>
+		<aop:aspect ref="audience">
+			<aop:pointcut expression="execution(* com.wang.spring.DI.Performer.perform(..))" id="performance"/>
+			<aop:around method="watchPerformance" pointcut-ref="performance"/>
+			<aop:before method="takeSeats" pointcut-ref="performance"/>
+			<aop:before method="turnOffCellPhones"  pointcut-ref="performance"/>
+			<aop:after-returning method="applaud"  pointcut-ref="performance"/>
+			<aop:after-throwing method="demandRefund"  pointcut-ref="performance"/>
+		</aop:aspect>
+	</aop:config> -->
+
+	<!-- <aop:config>
+		<aop:aspect>
+			<aop:declare-parents types-matching="com.wang.spring.DI.Perfromer+"
+				implement-interface="com.wang.spring.DI.Contestant" default-impl="com.wang.spring.DI.GraciousContestant"/>
+		</aop:aspect>
+	</aop:config>
+ -->
+
+	<!-- <bean id="sonnet29" class="com.wang.spring.DI.Sonnet29"/>
+	<bean id="poeticDuke" class="com.wang.spring.DI.PoeticJuggler">
+		<constructor-arg value="25"/>
+		<constructor-arg ref="sonnet29"/>
+	</bean>
+	<bean id="theStage" class="com.wang.spring.DI.Stage" factory-method="getInstance"/>
+	<bean id="ticket" class="com.wang.spring.DI.Ticket" scope="prototype" />
+
+	<bean id="saxophone" class="com.wang.spring.DI.Saxophone"/>
+	<bean id="piano" class="com.wang.spring.DI.Piano"/>
+
+	<bean id="instrument" class="com.wang.spring.DI.Saxophone"/>
+	<bean id="kenny" class="com.wang.spring.DI.Instrumentalist" autowire="byName">
+		<property name="song" value="Jingle Bells"/>
+	</bean> -->
+<!--
+	<bean id="kenny" class="com.wang.spring.DI.Instrumentalist">
+	</bean> -->
+
+	<!-- <bean id="hank" class="com.wang.spring.DI.OneManBand">
+		<property name="instruments">
+			<map>
+				<entry key="saxophone" value-ref="saxophone"/>
+				<entry key="piano" value-ref="piano"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="duke" class="com.wang.spring.DI.Juggler">
+		<constructor-arg value="15"/>
+	</bean> -->
+</beans>
