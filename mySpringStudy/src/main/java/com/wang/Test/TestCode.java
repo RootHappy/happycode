@@ -1,7 +1,5 @@
 package com.wang.Test;
 
-import java.util.concurrent.Future;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,7 +12,6 @@ public class TestCode {
 		System.out.println("Spring coding....");
 
 		Thread thread ;
-		Future<V> a;
 	}
 
 }
