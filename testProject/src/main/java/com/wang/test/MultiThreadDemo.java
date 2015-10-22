@@ -23,6 +23,11 @@ public class MultiThreadDemo {
 		thread.start();
 	}
 
+	/**
+	 * java.lang.ThreadLocal<T> local; 线程局部变量 ThreadLocal.ThreadLocalMap threadLocals = null;
+	 * 在线程中存在一个threadLocals，保存本线程的局部变量，当使用local.get()获取值时，
+	 * 查找当前线程的map中是否有值，如果没有则调用initialValue()方法添加，有则直接返回
+	 * */
 	public static void threadLocalTest() {
 		final ThreadLocal<Integer> local = new ThreadLocal<Integer>(){
 			@Override
@@ -40,7 +45,6 @@ public class MultiThreadDemo {
 				}
 			});
 		}
-
 		for(int i = 0; i < 5; i++) {
 			threads[i].start();
 		}
