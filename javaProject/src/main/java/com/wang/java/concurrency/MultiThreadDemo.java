@@ -7,12 +7,17 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 
 /**
  *java.lang.Runnable接口
  *java.lang.ThreadLocal类
  *java.util.concurrent.Callable接口
+ *java.util.concurrent.Executor接口
+ *java.util.concurrent.ExecutorService接口
  *
  * */
 public class MultiThreadDemo {
@@ -105,12 +110,28 @@ public class MultiThreadDemo {
 		executorAsyn.execute(task);
 	}
 
+	public static void scheduledExecutorServiceTest() {
+		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+		Runnable beeper = new Runnable(){
+			public void run() {
+				System.out.println("beep");
+			}
+		};
+		final ScheduledFuture<?> beeperHandle = scheduler.scheduleAtFixedRate(beeper, 1, 1,TimeUnit.SECONDS);
+		scheduler.schedule(new Runnable(){
+			public void run() {
+				beeperHandle.cancel(true);
+			}
+		}, 1 * 2, TimeUnit.SECONDS);
+	}
+
 
 	public static void main(String[] args) {
-		runnableTest();
-		threadLocalTest();
-		callableTest();
-		executorTest();
+//		runnableTest();
+//		threadLocalTest();
+//		callableTest();
+//		executorTest();
+		scheduledExecutorServiceTest();
 	}
 
 }

@@ -32,6 +32,18 @@ public class Test {
 		System.out.println(p.get("user.home"));
 		System.out.println(p.get("user.dir"));
 
+		String str = "D1";
+
+		for(EdgeType edge : EdgeType.values()) {
+			if(str.equals(edge.toString())) {
+				System.out.println(str);
+			}
+		}
+
+	}
+
+	enum EdgeType {
+		D1,D2,D3
 	}
 
 }
