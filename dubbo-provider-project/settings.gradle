@@ -1,0 +1,2 @@
+include ':dubbo-api-project'
+project(':dubbo-api-project').projectDir = new File(settingsDir,'../dubbo-api-project')
