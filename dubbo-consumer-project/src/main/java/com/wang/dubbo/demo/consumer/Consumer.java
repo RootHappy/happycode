@@ -11,7 +11,6 @@ public class Consumer {
 		context.start();
 		DemoService demoService = (DemoService)context.getBean("demoService");
 		System.out.println(demoService.sayHello("王云龙"));
-
 	}
 
 }
