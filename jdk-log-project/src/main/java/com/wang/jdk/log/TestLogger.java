@@ -23,8 +23,5 @@ public class TestLogger {
 		logger.fine("wangyunlong");
 		logger.finer("wangyunlong");
 		logger.finest("finest");
-
-
 	}
-
 }
