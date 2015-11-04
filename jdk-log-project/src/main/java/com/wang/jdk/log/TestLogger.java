@@ -10,6 +10,7 @@ public class TestLogger {
 
 	public static void main(String[] args) throws SecurityException, IOException {
 		Logger logger = Logger.getLogger("com.wang.jdk.log.TestLogger");
+		logger.setLevel(Level.ALL);
 		ConsoleHandler handler = new ConsoleHandler();
 		handler.setLevel(Level.ALL);
 		logger.addHandler(handler);
