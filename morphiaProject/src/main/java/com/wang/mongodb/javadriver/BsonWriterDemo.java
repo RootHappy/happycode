@@ -17,6 +17,7 @@ public class BsonWriterDemo {
 
 	public static void main(String[] args) {
 		BsonOutput output = new BasicOutputBuffer();
+		@SuppressWarnings("resource")
 		BsonWriter bson = new BsonBinaryWriter(output);
 
 		bson.writeStartDocument();
@@ -34,6 +35,7 @@ public class BsonWriterDemo {
 		byte[] bytes = new byte[1024];
 		output.writeBytes(bytes);
 		System.out.println(new String(bytes));
+		output.close();
 	}
 
 }
