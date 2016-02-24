@@ -1,5 +1,7 @@
 package com.wang.sort;
 
+import com.wang.tools.DisplayData;
+
 /**
  * 希尔排序（Shell Sort）
  * 使用一个增量序列（h[1],h[2],...,h[t]）,只要h[1] = 1，任何增量序列都是可行的。
@@ -17,25 +19,26 @@ public class ShellSort {
 	public static void main(String[] args) {
 		int[] data = {2,5,-1,0,32,12,100,-100,34,-5,25};
 		System.out.println("Before the data is sorted.");
-		display(data);
-		shellSort(data,data.length);
-		display(data);
+		DisplayData.display(data);
+		shellSortDesc(data,data.length);
+		DisplayData.display(data);
 		System.out.println("After the data is sorted.");
 		
 		int[] data2 = {2,5,-1,0,32,12,100,-100,34,-5,25};
 		System.out.println("Before the data is sorted.");
-		display(data2);
-		HibbardShellSort(data2, data2.length);
-		display(data2);
+		DisplayData.display(data);
+		HibbardShellSortDesc(data2, data2.length);
+		DisplayData.display(data);
 		System.out.println("After the data is sorted.");
 	}
 	
 	/**
+	 * 升序排序
 	 * 执行常见的增量序列 h[t] = N /2; h[k] = (h[k+1])/2;
 	 * @param data 出入数组，呆排序
 	 * @param length 数组长度
 	 * */
-	private static void shellSort(int[] data , int length){
+	public static void shellSort(int[] data , int length){
 		int temp;
 		int j;
 		for (int increment = length / 2;increment > 0; increment /= 2) { //增量序列
@@ -54,9 +57,35 @@ public class ShellSort {
 	}
 	
 	/**
-	 * 增量序列：1，3,7 15... 2k -1;
+	 * 降序排序
+	 * 执行常见的增量序列 h[t] = N /2; h[k] = (h[k+1])/2;
+	 * @param data 出入数组，呆排序
+	 * @param length 数组长度
 	 * */
-	private static void HibbardShellSort(int[] data , int length){
+	public static void shellSortDesc(int[] data , int length){
+		int temp;
+		int j;
+		for (int increment = length / 2;increment > 0; increment /= 2) { //增量序列
+			for(int i = increment; i < length;i++) {
+				temp = data[i];
+				for(j = i;j >= increment; j -= increment) {
+					if(data[j - increment] < temp)
+						data[j] = data[j - increment];
+					else
+						break;
+				}
+				data[j] = temp;
+			}
+			
+		}
+	}
+	
+	/**
+	 * 增量序列：1，3,7 15... 2k -1;
+	 * 
+	 * 升序排序
+	 * */
+	public static void HibbardShellSort(int[] data , int length){
 		int temp ,j;
 		int[] incrementSequence = generateSequence(length);
 		for(int k = incrementSequence.length - 1; k >=0; k--) {
@@ -65,6 +94,30 @@ public class ShellSort {
 				temp = data[i];
 				for(j = i; j >= increment; j-=increment) {
 					if(data[j - increment] > temp)
+						data[j] = data [j -increment];
+					else
+						break;
+				}
+				data[j] = temp;
+			}
+		}
+
+	}
+	
+	/**
+	 * 增量序列：1，3,7 15... 2k -1;
+	 * 
+	 * 降序排序
+	 * */
+	public static void HibbardShellSortDesc(int[] data , int length){
+		int temp ,j;
+		int[] incrementSequence = generateSequence(length);
+		for(int k = incrementSequence.length - 1; k >=0; k--) {
+			int increment = incrementSequence[k];
+			for( int i = increment; i < length; i++) {
+				temp = data[i];
+				for(j = i; j >= increment; j-=increment) {
+					if(data[j - increment] < temp)
 						data[j] = data [j -increment];
 					else
 						break;
@@ -91,17 +144,5 @@ public class ShellSort {
 			result [i] = (int)Math.pow(2, i+1) - 1;
 		}
 		return result;
-	}
-	
-	
-	/**
-	 * 按照顺序显示数组中的元素
-	 * */
-	private static void display(int[] data){
-		System.out.println("Current Data :");
-		for(int i = 0; i < data.length; i++) {
-			System.out.print(data[i] + " ");
-		}
-		System.out.println();
 	}
 }
