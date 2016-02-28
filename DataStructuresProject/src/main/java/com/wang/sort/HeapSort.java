@@ -1,6 +1,6 @@
 package com.wang.sort;
 
-import com.wang.datastructres.priorityqueue.BinaryHeap;
+import com.wang.datastructures.priorityqueue.BinaryHeap;
 import com.wang.tools.DisplayData;
 import com.wang.tools.GenerateData;
 

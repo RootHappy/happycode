@@ -1,4 +1,4 @@
-package com.wang.datastructres.priorityqueue;
+package com.wang.datastructures.priorityqueue;
 
 import com.wang.tools.DisplayData;
 
