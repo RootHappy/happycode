@@ -1,0 +1,49 @@
+<!DOCTYPE html>	
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>LayOut Panel</title>
+		<link rel="stylesheet" type="text/css" href="../static/easyui/themes/default/easyui.css">
+    	<link rel="stylesheet" type="text/css" href="../static/easyui/themes/icon.css">
+    	<link rel="stylesheet" type="text/css" href="../static/easyui/demo/demo.css">
+    	<script type="text/javascript" src="../static/easyui/jquery.min.js"></script>
+    	<script type="text/javascript" src="../static/easyui/jquery.easyui.min.js"></script>
+	</head>
+	<body>
+	<div id="p" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
+        data-options="iconCls:'icon-save',resizable:true,modal:true">
+	    Dialog Content.
+	</div>
+	<div id="dd">Dialog Content.</div>
+	<script type="text/javascript">
+	$('#dd').dialog({
+	    title: 'My Dialog',
+	    width: 400,
+	    height: 200,
+	    closed: false,
+	    cache: false,
+	    modal: true,
+	    toolbar:[{
+			text:'Edit',
+			iconCls:'icon-edit',
+			handler:function(){alert('edit')}
+		},{
+			text:'Help',
+			iconCls:'icon-help',
+			handler:function(){alert('help')}
+		}],
+	    buttons:[{
+			text:'Save',
+			handler:function(){
+				alert('save');
+			}
+		},{
+			text:'Close',
+			handler:function(){
+				alert('close');
+			}
+		}]
+	});
+	</script>
+	</body>
+</html>

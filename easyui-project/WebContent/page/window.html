@@ -1,0 +1,23 @@
+<!DOCTYPE html>	
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>LayOut Panel</title>
+		<link rel="stylesheet" type="text/css" href="../static/easyui/themes/default/easyui.css">
+    	<link rel="stylesheet" type="text/css" href="../static/easyui/themes/icon.css">
+    	<link rel="stylesheet" type="text/css" href="../static/easyui/demo/demo.css">
+    	<script type="text/javascript" src="../static/easyui/jquery.min.js"></script>
+    	<script type="text/javascript" src="../static/easyui/jquery.easyui.min.js"></script>
+	</head>
+	<body>
+		<div id="win" class="easyui-window" title="My Window" style="width:600px;height:400px"
+        data-options="iconCls:'icon-save',modal:true">
+		    <div class="easyui-layout" data-options="fit:true">
+		        <div data-options="region:'north',split:true" style="height:100px"></div>
+		        <div data-options="region:'center'">
+		            The Content.
+		        </div>
+		    </div>
+		</div>
+	</body>
+</html>
